@@ -6,7 +6,7 @@ module.exports = function simpleConcatLimit (stream, limit, callback) {
       chunks.push(chunk)
       bytesReceived += chunk.length
       if (bytesReceived > limit) {
-        stream.destroy()
+        chunks = null
         var limitError = new Error('limit')
         limitError.limit = limit
         finish(limitError)
@@ -16,10 +16,14 @@ module.exports = function simpleConcatLimit (stream, limit, callback) {
       finish(error)
     })
     .once('end', function () {
-      finish(null, Buffer.concat(chunks))
+      finish()
     })
-  function finish (error, value) {
-    if (callback) callback(error, value)
-    callback = null
+
+  var finished = false
+  function finish (error) {
+    if (finished) return
+    finished = true
+    if (error) callback(error)
+    else callback(null, Buffer.concat(chunks))
   }
 }
