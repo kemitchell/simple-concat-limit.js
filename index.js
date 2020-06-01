@@ -21,6 +21,7 @@ module.exports = function simpleConcatLimit (stream, limit, callback) {
 
   var finished = false
   function finish (error) {
+    /* istanbul ignore if */
     if (finished) return
     finished = true
     if (error) callback(error)

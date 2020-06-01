@@ -10,10 +10,12 @@
   ],
   "devDependencies": {
     "defence-cli": "^3.0.1",
+    "nyc": "^15.1.0",
     "replace-require-self": "^1.1.1",
     "standard": "^14.3.4"
   },
   "scripts": {
+    "coverage": "nyc --reporter=text --reporter=lcov npm run test",
     "lint": "standard",
     "test": "defence -i javascript README.md | replace-require-self | node"
   }
