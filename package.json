@@ -1,6 +1,6 @@
 {
   "name": "simple-concat-limit",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "concatenate streams with size limits",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com/)",
   "repository": "kemitchell/simple-concat-limit.js",
