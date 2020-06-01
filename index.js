@@ -10,6 +10,7 @@ module.exports = function simpleConcatLimit (stream, limit, callback) {
         var limitError = new Error('limit')
         limitError.limit = limit
         finish(limitError)
+        stream.destroy()
       }
     })
     .once('error', function (error) {
