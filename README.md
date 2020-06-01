@@ -13,7 +13,7 @@ concat(firstStream, 1000 /* bytes */, function (error, buffer) {
 })
 
 var secondStream = fs.createReadStream('index.js')
-concat(firstStream, 100, function (error, buffer) {
+concat(secondStream, 100, function (error, buffer) {
   assert(error.message === 'limit', 'yields limit error')
 })
 ```
