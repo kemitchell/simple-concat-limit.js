@@ -1,4 +1,4 @@
-module.exports = function simpleConcatLimit (stream, limit, callback) {
+module.exports = function (stream, limit, callback) {
   var chunks = []
   var bytesReceived = 0
   stream
